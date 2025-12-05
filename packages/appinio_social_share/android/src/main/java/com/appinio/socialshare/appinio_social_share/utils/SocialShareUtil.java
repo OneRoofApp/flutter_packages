@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.provider.Telephony;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
 
 import com.facebook.CallbackManager;
@@ -139,7 +140,8 @@ public class SocialShareUtil {
         }
         return shareFileAndTextToPackage(imagePath, content, activity, defaultApplication);
     }
-    public String shareToSMSFiles( Context activity, ArrayList<String> imagePaths) {
+
+    public String shareToSMSFiles(Context activity, ArrayList<String> imagePaths) {
         String defaultApplication;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
             defaultApplication = Telephony.Sms.getDefaultSmsPackage(activity);
@@ -256,8 +258,8 @@ public class SocialShareUtil {
             }
 
             @Override
-            public void onError(FacebookException error) {
-                System.out.println("---------------onError");
+            public void onError(@NonNull FacebookException error) {
+                System.out.println("---------------onError" + error.getLocalizedMessage());
                 result.success(error.getLocalizedMessage());
             }
         });
@@ -271,7 +273,12 @@ public class SocialShareUtil {
                 .setPhotos(sharePhotos)
                 .build();
         if (ShareDialog.canShow(SharePhotoContent.class)) {
-            shareDialog.show(content);
+            try {
+                shareDialog.show(content);
+            } catch (Exception e) {
+                System.out.println("-----onError " + e.getLocalizedMessage());
+                result.error("0", e.getLocalizedMessage(), null);
+            }
         }
     }
 

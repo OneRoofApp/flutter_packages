@@ -45,5 +45,26 @@
 	<false/>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
+    <!--- replace with dummy strings -->
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>instagram-stories</string>
+        <string>instagram</string>
+        <string>fb</string>
+        <string>fbauth2</string>
+        <string>fbshareextension</string>
+        <string>fbapi</string>
+        <string>facebook-reels</string>
+        <string>facebook-stories</string>
+        <string>fb-messenger-share-api</string>
+        <string>fb-messenger</string>
+        <string>whatsapp</string>
+    </array>
+    <key>FacebookAppID</key>
+    <string>app_id_here</string>
+    <key>FacebookClientToken</key>
+    <string>fb_client_token</string>
 </dict>
 </plist>

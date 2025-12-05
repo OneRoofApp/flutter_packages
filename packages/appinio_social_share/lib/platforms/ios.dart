@@ -41,6 +41,12 @@ class IOS {
   }
 
   Future<String> shareToFacebook(String hashtag, List<String> filePaths) {
+    if (filePaths.isEmpty || filePaths.length > 10) {
+      throw Exception(
+        'media filepaths must be between 1 & 10. User passed ${filePaths.length} medias',
+      );
+    }
+
     return AppinioSocialSharePlatform.instance
         .shareToFacebook(hashtag, filePaths);
   }
