@@ -1,3 +1,7 @@
+## [0.3.4+snag]
+* Merged upstream 0.3.3 (iOS Swift Package Manager support) into the Snag fork.
+* SwiftPM now resolves `facebook-ios-sdk` 18.x (>= 18.0.2, < 19.0.0), matching the fork's CocoaPods pin of 18.0.2.
+
 ## [0.3.3]
 * Added iOS Swift Package Manager (SwiftPM) support via `ios/appinio_social_share/Package.swift`.
 * FBSDKCoreKit / FBSDKShareKit are declared as SwiftPM dependencies on `facebook-ios-sdk`.
